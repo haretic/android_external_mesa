@@ -19,6 +19,7 @@ files_u_gralloc = files(
 
 if dep_android_ui.found()
   files_u_gralloc += files('u_gralloc_imapper5_api.cpp')
+  deps_for_u_gralloc += dep_android_ui
   c_args_for_u_gralloc += '-DUSE_IMAPPER4_METADATA_API'
   cpp_args_for_u_gralloc += '-DUSE_IMAPPER4_METADATA_API'
   options_for_u_gralloc += 'cpp_std=c++17'

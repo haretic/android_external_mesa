@@ -138,6 +138,11 @@ rogue_files = files(
   'rogue/pvr_dump_csb.c',
 )
 
+pvr_per_arch_deps = [dep_libdrm]
+if with_platform_android
+  pvr_per_arch_deps += dep_android
+endif
+
 powervr_per_arch_libs = []
 
 foreach arch : ['rogue']
@@ -157,6 +162,7 @@ foreach arch : ['rogue']
       inc_src,
     ],
     dependencies : [
+      pvr_per_arch_deps,
       dep_valgrind,
       idep_nir_headers,
       idep_pco_uscgen_programs_headers,
